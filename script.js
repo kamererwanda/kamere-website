@@ -514,8 +514,8 @@ async function sendToAI() {
     try {
         // 3. Call your Netlify Proxy
        // Change this line in your script.js:
-      const response = await fetch('/api/kamere-ai', { 
-        method: 'POST',
+         const response = await fetch('/api/kamere-ai', { 
+        method: 'POST', // This tells the brain you are SENDING a message, not just looking
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ query: userInput }) 
     });
@@ -532,3 +532,4 @@ async function sendToAI() {
     }
 
 }
+
