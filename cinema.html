@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinema Feed | KAMERE FILMS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="images/K.png">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="minimal-line"></div>
+            <div class="expensive-text">KAMERE♠️ Films</div>
+            <div class="sync-status">Initialising High-Fidelity Feed</div>
+        </div>
+    </div>
+
+   <nav>
+        <div class="logo">KAMERE <span>FILMS</span></div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Our Vision</a>
+            <a href="cinema.html">Cinema Feed</a>
+            
+            <a href="javascript:void(0)" class="ai-trigger" onclick="toggleAIChat()">
+                <span class="ai-dot"></span> KAMERE AI
+            </a>
+            
+            <button id="theme-toggle">🌙 Toggle Theme</button>
+        </div>
+    </nav>
+
+    <section class="featured-cinema">
+        <div class="featured-overlay">
+            <span class="tag" data-aos="fade-right">LATEST PREMIERE</span>
+            <h1 data-aos="fade-up">The Heart of Kamere</h1>
+            <p data-aos="fade-up" data-aos-delay="200">A deep dive into the sharpening of Rwandan culture through the lens of ZagadyEB. A cinematic journey through our heritage.</p>
+            <div class="hero-btns" data-aos="fade-up" data-aos-delay="400">
+                <button class="btn" onclick="openVideo('dQw4w9WgXcQ')">▶ Watch Feature</button>
+                <a href="#video-feed" class="btn-outline">Browse Library</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- the search bar -->
+    <div class="search-container" data-aos="fade-up">
+        <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="videoSearch" placeholder="Search films, culture, or projects...">
+        </div>
+    </div>
+
+    <div class="filter-container">
+        </div>
+
+    <div class="filter-container">
+        <div class="filter-bar">
+            <button class="filter-btn active" data-filter="all">All Stories</button>
+            <button class="filter-btn" data-filter="cinema">Cinema</button>
+            <button class="filter-btn" data-filter="doc">Documentary</button>
+            <button class="filter-btn" data-filter="comm">Commercial</button>
+        </div>
+    </div>
+
+    <section class="container" id="video-feed-section">
+        <div class="grid" id="video-feed">
+            <div class="loading-text">Scanning Cinema Archives...</div>
+        </div>
+
+        <div class="grid" id="video-feed">
+            <div class="loading-state">
+             <div class="loader-line"></div>
+            <div class="loading-text">Synchronizing Archives</div>
+        </div>
+    </section>
+
+    <section class="tech-specs">
+        <div class="specs-content" data-aos="fade-up">
+            <h2>The Gear Behind the Fidelity</h2>
+            <div class="specs-grid">
+                <div class="spec-item"><strong>Camera:</strong> Red Komodo / Sony FX Series</div>
+                <div class="spec-item"><strong>Resolution:</strong> 4K / 8K Cinema Standard</div>
+                <div class="spec-item"><strong>Color:</strong> DaVinci Resolve Professional Grading</div>
+                <div class="spec-item"><strong>Audio:</strong> High-Fidelity Ambisonic Capture</div>
+            </div>
+        </div>
+    </section>
+
+    <div id="videoModal" class="video-modal">
+        <div class="modal-content" id="modal-content-container">
+            <a id="youtubeRedirect" class="redirect-yt" target="_blank" href="">Open in YouTube ↗</a>
+            <span class="close-modal" onclick="closeVideo()">✕ Close Player</span>
+            
+            <iframe id="modalPlayer" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 KAMERE FILMS x ZagadyEB.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+
+    <div id="ai-chat-window" class="ai-window">
+        <div class="ai-header">
+            <div>
+                <span class="expensive-text" style="font-size: 10px; color: #d4af37; display: block;">Kamere Intelligence</span>
+                <span style="font-size: 8px; letter-spacing: 2px; opacity: 0.6;">CULTURAL GUARDIAN</span>
+            </div>
+            <button onclick="toggleAIChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✕</button>
+        </div>
+        <div id="chat-messages" class="chat-body">
+            <div class="message ai-msg">
+                Muraho! Izina ryanjye ni Kamere. Nshobora kugufasha kumva umuco n'ubuhanzi bwa cinema. (How can I help you explore the nature of our storytelling today?)
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-query" placeholder="Baza Kamere mu Kinyarwanda..." onkeypress="if(event.key === 'Enter') sendToAI()">
+            <button onclick="sendToAI()">→</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | KAMERE FILMS</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="images/K.png">
+</head>
+<body>
+
+    <div id="preloader">
+        <div class="loader-content">
+            <div class="minimal-line"></div>
+            <div class="expensive-text">KAMERE♠️ Films</div>
+            <div class="sync-status">Initialising High-Fidelity Feed</div>
+        </div>
+    </div>
+
+    <nav>
+        <div class="logo">KAMERE <span>FILMS</span></div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="nav-links" id="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">Our Vision</a>
+            <a href="cinema.html">Cinema Feed</a>
+            
+            <a href="javascript:void(0)" class="ai-trigger" onclick="toggleAIChat()">
+                <span class="ai-dot"></span> KAMERE AI
+            </a>
+            
+            <button id="theme-toggle">🌙 Toggle Theme</button>
+        </div>
+    </nav>
+
+    <section class="about-hero">
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="images/video intro.mp4" type="video/mp4">
+        </video>
+        <div class="hero-overlay">
+            <h1 data-aos="fade-up">Beyond the Lens</h1>
+            <p data-aos="fade-up" data-aos-delay="200">We don't just produce films; we restore the cultural heartbeat of Rwanda.</p>
+        </div>
+    </section>
+
+    <section class="container">
+        <div class="section-title" style="text-align:center; margin-bottom: 60px;">
+            <h2 data-aos="fade-up">Our Core Philosophy</h2>
+            <div class="underline"></div>
+        </div>
+        <div class="grid">
+            <div class="card" data-aos="fade-up">
+                <div class="icon">🏛️</div>
+                <h3>Cultural Restoration</h3>
+                <p>Using Kinyarwanda and local motifs to sharpen the innate character of our people.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon">🎥</div>
+                <h3>Global Fidelity</h3>
+                <p>Bringing international cinematic standards (4K/8K) to the local Rwandan narrative.</p>
+            </div>
+            <div class="card" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon">📡</div>
+                <h3>Broadcasting Power</h3>
+                <p>Our union with ZagadyEB ensures that the story doesn't just end on a hard drive—it reaches the masses.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="container" style="background: var(--card-bg); border-radius: 50px 50px 0 0;">
+        <div class="section-title" style="text-align:center; margin-bottom: 50px;">
+            <h2 data-aos="fade-up">Our Workflow</h2>
+            <p>How we bring the "Kamere" to life.</p>
+        </div>
+        
+        <div class="grid">
+            <div class="card" data-aos="fade-right">
+                <span style="color:var(--accent); font-weight:800;">01. PRE-PRODUCTION</span>
+                <h4>Scripting & Concept</h4>
+                <p>We research the cultural roots to ensure the story is authentic to the Rwandan heart.</p>
+            </div>
+            <div class="card" data-aos="fade-up">
+                <span style="color:var(--accent); font-weight:800;">02. PRODUCTION</span>
+                <h4>High-Fidelity Capture</h4>
+                <p>Using 4K/8K technology to record visuals that compete on a global stage.</p>
+            </div>
+            <div class="card" data-aos="fade-left">
+                <span style="color:var(--accent); font-weight:800;">03. POST-PRODUCTION</span>
+                <h4>The Final Sharpening</h4>
+                <p>Meticulous editing and sound design to perfect the cultural message.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="process-section">
+        <div class="section-title">
+            <h2 data-aos="fade-right">From Script to Screen</h2>
+        </div>
+        
+        <div class="process-steps">
+            <div class="step" data-aos="fade-up">
+                <span class="step-num">01</span>
+                <h4>Discovery</h4>
+                <p>Digging deep into the cultural roots of the story we want to tell.</p>
+            </div>
+            <div class="step" data-aos="fade-up" data-aos-delay="200">
+                <span class="step-num">02</span>
+                <h4>Production</h4>
+                <p>Capturing high-fidelity visuals using state-of-the-art cinema gear.</p>
+            </div>
+            <div class="step" data-aos="fade-up" data-aos-delay="400">
+                <span class="step-num">03</span>
+                <h4>Sharpening</h4>
+                <p>Meticulous post-production where we hone the message for maximum impact.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- founder's part -->
+    <section class="container founders-section">
+        <div class="section-title" style="text-align:center; margin-bottom: 60px;">
+            <h2 data-aos="fade-up">The Visionaries</h2>
+            <p data-aos="fade-up" data-aos-delay="100">The minds sharpening Rwandan cinema.</p>
+            <div class="underline"></div>
+        </div>
+
+        <div class="grid">
+            <div class="card founder-card" data-aos="fade-up">
+                <div class="founder-img">
+                    <img src="images/Donny.jpg" alt="Founder Name">
+                </div>
+                <h3>Donald Grayson</h3>
+                <span class="status">CEO & Creative Director</span>
+                <p class="short-bio">Dedicated to restoring the Rwandan cultural heartbeat through high-fidelity cinema.</p>
+                <button class="btn-sm" onclick="openFounderModal('founder1')">Learn More</button>
+            </div>
+
+            <div class="card founder-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="founder-img">
+                    <img src="images/Evode.jpg" alt="Founder Name">
+                </div>
+                <h3>BIGIRIMANA Evode</h3>
+                <span class="status">Head of Production</span>
+                <p class="short-bio">Ensuring every frame meets the global standards of fidelity and cultural truth.</p>
+                <button class="btn-sm" onclick="openFounderModal('founder2')">Learn More</button>
+            </div>
+        </div>
+    </section>
+
+    <div id="founderModal" class="founder-modal">
+        <div class="modal-body">
+            <span class="close-modal" onclick="closeFounderModal()">✕</span>
+            <div class="modal-grid">
+                <div class="modal-img-container">
+                    <img id="modalFounderImg" src="" alt="Founder">
+                </div>
+                <div class="modal-text">
+                    <h2 id="modalFounderName">Founder Name</h2>
+                    <h4 id="modalFounderStatus" style="color: var(--accent);">Status</h4>
+                    <hr>
+                    <h5>Why Kamere?</h5>
+                    <p id="modalFounderStory">Detailed story goes here...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-cta" data-aos="zoom-in">
+        <h2>Ready to tell a legendary story?</h2>
+        <a href="index.html#contact" class="btn">Start a Collaboration</a>
+    </section>
+
+    <footer>
+        <p>© 2025 KAMERE FILMS x ZagadyEB.</p>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+
+    <script>
+        // 1. Data Object
+        const founderData = {
+            founder1: {
+                name: "The Visionary",
+                status: "CEO & Creative Director",
+                img: "images/Donny.jpg",
+                story: "In the heart of Kigali, I realized that our stories were being told by voices that didn't understand our 'Kamere'. I founded this studio to reclaim our narrative. We don't just film; we sharpen the Rwandan identity for the world to see."
+            },
+            founder2: {
+                name: "Technical Lead",
+                status: "Head of Production",
+                img: "images/Evode.jpg",
+                story: "Fidelity is not just about 4K resolution; it's about the honesty of the frame. My journey started with a simple camera and a dream to see Rwandan faces in high-definition glory. Kamere is the fulfillment of that technical and cultural mission."
+            }
+        };
+
+        // 2. The Functions (Defined globally so buttons can see them)
+        function openFounderModal(id) {
+            console.log("Button clicked for:", id); // This helps us debug
+            const data = founderData[id];
+            const modal = document.getElementById('founderModal');
+            
+            if (!data || !modal) {
+                console.error("Data or Modal not found!");
+                return;
+            }
+
+            document.getElementById('modalFounderName').innerText = data.name;
+            document.getElementById('modalFounderStatus').innerText = data.status;
+            document.getElementById('modalFounderImg').src = data.img;
+            document.getElementById('modalFounderStory').innerText = data.story;
+            
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        function closeFounderModal() {
+            document.getElementById('founderModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; 
+        }
+
+        // 3. Click outside to close
+        window.onclick = function(event) {
+            const modal = document.getElementById('founderModal');
+            if (event.target == modal) {
+                closeFounderModal();
+            }
+        }
+    </script>
+
+    <div id="ai-chat-window" class="ai-window">
+        <div class="ai-header">
+            <div>
+                <span class="expensive-text" style="font-size: 10px; color: #d4af37; display: block;">Kamere Intelligence</span>
+                <span style="font-size: 8px; letter-spacing: 2px; opacity: 0.6;">CULTURAL GUARDIAN</span>
+            </div>
+            <button onclick="toggleAIChat()" style="background:none; border:none; color:white; cursor:pointer; font-size:16px;">✕</button>
+        </div>
+        <div id="chat-messages" class="chat-body">
+            <div class="message ai-msg">
+                Muraho! Izina ryanjye ni Kamere. Nshobora kugufasha kumva umuco n'ubuhanzi bwa cinema. (How can I help you explore the nature of our storytelling today?)
+            </div>
+        </div>
+        <div class="chat-input-area">
+            <input type="text" id="user-query" placeholder="Baza Kamere mu Kinyarwanda..." onkeypress="if(event.key === 'Enter') sendToAI()">
+            <button onclick="sendToAI()">→</button>
+        </div>
+    </div>
+
+</body>
+</html>
