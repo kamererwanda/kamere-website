@@ -514,11 +514,11 @@ async function sendToAI() {
     try {
         // 3. Call your Netlify Proxy
        // Change this line in your script.js:
-    const response = await fetch('/api/kamere-ai', { 
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query: userInput }) 
-});
+      const response = await fetch('/api/kamere-ai', { 
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ query: userInput }) 
+    });
 
         const data = await response.json();
         
@@ -530,4 +530,5 @@ async function sendToAI() {
     } catch (error) {
         document.getElementById(loadingId).innerText = "Kamere is resting. Check connection.";
     }
+
 }
