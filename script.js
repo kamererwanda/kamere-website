@@ -1,5 +1,5 @@
 /**
- * KAMERE x ZAGADYEB - Master Script (Animation & AI Preserved)
+ * KAMERE x ZAGADYEB - Master Script (Full Version - All Original Logic Preserved)
  */
 
 // Initialize AOS Animations
@@ -38,6 +38,23 @@ const runCounter = (el) => {
         el.innerText = target;
     }
 };
+
+const statsSection = document.querySelector('.stats-section');
+if (statsSection) {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const allCounters = entry.target.querySelectorAll('.counter');
+                allCounters.forEach(counter => {
+                    counter.innerText = "0";
+                    runCounter(counter);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    observer.observe(statsSection);
+}
 
 // 3. VIDEO MODAL LOGIC
 function openVideo(videoId, title = "") {
@@ -109,10 +126,83 @@ async function fetchVideos() {
                 videoContainer.appendChild(videoCard);
             });
         }
-    } catch (err) { console.error("YouTube Error:", err); }
+    } catch (err) { console.error("YouTube Fetch Error:", err); }
 }
 
-// 5. AI CHAT LOGIC (REPAIRED)
+// 5. INITIALIZATION & NAV ACTIONS (PRESERVING ALL YOUR LOGIC)
+document.addEventListener('DOMContentLoaded', () => {
+    applyTheme();
+    const themeBtn = document.getElementById('theme-toggle');
+    if (themeBtn) themeBtn.addEventListener('click', handleThemeToggle);
+
+    // HAMBURGER NAV LOGIC
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+    if (hamburger) {
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    }
+
+    if (document.getElementById('video-feed')) fetchVideos();
+
+    // PRELOADER & PAGE TRANSITIONS (THE SHINE LOGIC)
+    const loader = document.getElementById('preloader');
+    if (loader) {
+        setTimeout(() => loader.classList.add('active'), 200);
+        setTimeout(() => loader.classList.add('fade-out'), 2500);
+        window.addEventListener('load', () => {
+            setTimeout(() => loader.classList.add('preloader-hidden'), 1500);
+        });
+    }
+
+    // INTERNAL LINK TRANSITION LOGIC
+    document.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && !href.startsWith('#') && href.includes('.html')) {
+                e.preventDefault();
+                if (loader) {
+                    loader.classList.remove('fade-out', 'active', 'preloader-hidden');
+                    setTimeout(() => { window.location.href = href; }, 800);
+                } else {
+                    window.location.href = href;
+                }
+            }
+        });
+    });
+});
+
+// 6. FILTER & SEARCH LOGIC
+document.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', function() {
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        this.classList.add('active');
+        const filterValue = this.getAttribute('data-filter');
+        const videos = document.querySelectorAll('#video-feed .card');
+        videos.forEach(video => {
+            if (filterValue === 'all' || video.innerText.toLowerCase().includes(filterValue)) {
+                video.style.display = 'block';
+            } else {
+                video.style.display = 'none';
+            }
+        });
+    });
+});
+
+const searchInput = document.getElementById('videoSearch');
+if (searchInput) {
+    searchInput.addEventListener('keyup', (e) => {
+        const term = e.target.value.toLowerCase();
+        document.querySelectorAll('#video-feed .card').forEach(card => {
+            const title = card.querySelector('h4').innerText.toLowerCase();
+            card.style.display = title.includes(term) ? 'block' : 'none';
+        });
+    });
+}
+
+// 7. AI POP-UP & PROXY LOGIC (FIXED FOR VERCEL)
 function toggleAIChat() {
     const chatWindow = document.getElementById('ai-chat-window');
     const navLinks = document.getElementById('nav-links'); 
@@ -137,7 +227,8 @@ function toggleAIChat() {
 async function sendToAI() {
     const input = document.getElementById('user-query');
     const chatBody = document.getElementById('chat-messages');
-    const query = input ? input.value.trim() : "";
+    if (!input || !chatBody) return;
+    const query = input.value.trim();
     if (!query) return;
 
     chatBody.innerHTML += `<div class="message user-msg">${query}</div>`;
@@ -145,7 +236,7 @@ async function sendToAI() {
     chatBody.scrollTop = chatBody.scrollHeight;
 
     const loadingId = "loading-" + Date.now();
-    chatBody.innerHTML += `<div class="message ai-msg" id="${loadingId}">Kamere is sharpening thoughts...</div>`;
+    chatBody.innerHTML += `<div class="message ai-msg" id="${loadingId}">Kamere is thinking...</div>`;
     chatBody.scrollTop = chatBody.scrollHeight;
 
     try {
@@ -159,57 +250,12 @@ async function sendToAI() {
         if (loadingElement) loadingElement.remove();
         chatBody.innerHTML += `<div class="message ai-msg">${data.reply || "Kamere is silent."}</div>`;
     } catch (error) {
-        const loadingElement = document.getElementById(loadingId);
-        if (loadingElement) loadingElement.innerText = "Kamere is resting. Check connection.";
+        document.getElementById(loadingId).innerText = "Kamere is resting. Check connection.";
     }
     chatBody.scrollTop = chatBody.scrollHeight;
 }
 
-// 6. PAGE INITIALIZATION & PRELOADER
-document.addEventListener('DOMContentLoaded', () => {
-    applyTheme();
-    const loader = document.getElementById('preloader');
-    
-    // PRELOADER ANIMATION CHAIN
-    if (loader) {
-        setTimeout(() => loader.classList.add('active'), 100);
-        setTimeout(() => loader.classList.add('fade-out'), 1800);
-        window.addEventListener('load', () => {
-            setTimeout(() => loader.classList.add('preloader-hidden'), 2500);
-        });
-    }
-
-    // BUTTON EVENTS
-    const themeBtn = document.getElementById('theme-toggle');
-    if (themeBtn) themeBtn.addEventListener('click', handleThemeToggle);
-
-    const hamburger = document.getElementById('hamburger');
-    const navLinks = document.getElementById('nav-links');
-    if (hamburger && navLinks) {
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            hamburger.classList.toggle('active');
-        });
-    }
-
-    // STATS OBSERVER
-    const statsSection = document.querySelector('.stats-section');
-    if (statsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.querySelectorAll('.counter').forEach(c => runCounter(c));
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.5 });
-        observer.observe(statsSection);
-    }
-
-    if (document.getElementById('video-feed')) fetchVideos();
-});
-
-// 7. SMOOTH SCROLL & UI HELPERS
+// 8. FINAL UI HELPERS (SMOOTH SCROLL & OUTSIDE CLICK)
 const filterContainer = document.querySelector('.filter-container');
 if (filterContainer) {
     filterContainer.addEventListener('wheel', (evt) => {
