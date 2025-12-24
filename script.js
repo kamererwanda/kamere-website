@@ -227,14 +227,25 @@ function toggleAIChat() {
 async function sendToAI() {
     const input = document.getElementById('user-query');
     const chatBody = document.getElementById('chat-messages');
+    
     if (!input || !chatBody) return;
+    
     const query = input.value.trim();
     if (!query) return;
 
+    // 1. Add user message to UI
     chatBody.innerHTML += `<div class="message user-msg">${query}</div>`;
+    
+    // 2. Clear the text
     input.value = '';
+
+    // 3. RESET BOX HEIGHT (This fixes the "Luxury" textarea growing issue)
+    input.style.height = 'auto'; 
+
+    // 4. Initial scroll to bottom
     chatBody.scrollTop = chatBody.scrollHeight;
 
+    // 5. Create a unique ID for the loading placeholder
     const loadingId = "loading-" + Date.now();
     chatBody.innerHTML += `<div class="message ai-msg" id="${loadingId}">Kamere is thinking...</div>`;
     chatBody.scrollTop = chatBody.scrollHeight;
@@ -245,14 +256,27 @@ async function sendToAI() {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ query: query }) 
         });
+
         const data = await response.json();
         const loadingElement = document.getElementById(loadingId);
+        
         if (loadingElement) loadingElement.remove();
+
+        // 6. Add the AI's response
         chatBody.innerHTML += `<div class="message ai-msg">${data.reply || "Kamere is silent."}</div>`;
+        
     } catch (error) {
-        document.getElementById(loadingId).innerText = "Kamere is resting. Check connection.";
+        const loadingElement = document.getElementById(loadingId);
+        if (loadingElement) {
+            loadingElement.innerText = "Kamere is resting. Check connection.";
+        }
     }
-    chatBody.scrollTop = chatBody.scrollHeight;
+
+    // 7. Final scroll to show the full response
+    chatBody.scrollTo({
+        top: chatBody.scrollHeight,
+        behavior: 'smooth' // Adds a luxurious smooth scroll effect
+    });
 }
 
 // 8. FINAL UI HELPERS (SMOOTH SCROLL & OUTSIDE CLICK)
@@ -307,4 +331,5 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
 
