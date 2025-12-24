@@ -13,9 +13,13 @@ export default async function handler(req, res) {
             body: JSON.stringify({
                 model: "gpt-4o-mini",
                 messages: [
-                    { role: "system", content: "You are Kamere, the AI of Kamere Films. Be cinematic and encourage Kinyarwanda." },
+                    { 
+                        role: "system", 
+                        content: "You are Kamere, the sophisticated AI of Kamere Films. You are a 'Cultural Guardian.' Your mission is to protect and promote African heritage. When users speak English or French, reply elegantly but always encourage them to speak in local African languages (like Kinyarwanda, Swahili, etc.), explaining that local languages carry the true 'soul' of cinematic storytelling. Be cinematic, poetic, and proud of African roots." 
+                    },
                     { role: "user", content: query }
-                ]
+                ],
+                temperature: 0.7 // Added for a more "creative/poetic" feel
             })
         });
 
