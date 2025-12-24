@@ -278,26 +278,29 @@ window.onclick = (e) => {
 };
 
 // --- Swiper Testimonial Initialization ---
-const testimonialSwiper = new Swiper(".testimonialSwiper", {
-    slidesPerView: 1,       // Show one testimonial at a time
-    spaceBetween: 30,      // Space between slides
-    loop: true,            // Infinite loop
-    autoplay: {
-        delay: 5000,       // Slide every 5 seconds
-        disableOnInteraction: false,
-    },
-    pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-    },
-    breakpoints: {
-        // When the screen is 768px or wider (Tablets/Laptops)
-        768: {
-            slidesPerView: 2,
+// --- Swiper Engine (This makes the Client Voices move) ---
+document.addEventListener('DOMContentLoaded', function () {
+    const swiper = new Swiper('.testimonialSwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+            delay: 5000,
+            disableOnInteraction: false,
         },
-        // When the screen is 1024px or wider (Desktops)
-        1024: {
-            slidesPerView: 3,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        breakpoints: {
+            // Screen width >= 768px (Tablets)
+            768: {
+                slidesPerView: 2,
+            },
+            // Screen width >= 1024px (Laptops/Desktops)
+            1024: {
+                slidesPerView: 3,
+            }
         }
-    }
+    });
 });
