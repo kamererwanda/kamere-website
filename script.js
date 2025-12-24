@@ -278,12 +278,15 @@ window.onclick = (e) => {
 };
 
 // --- Swiper Testimonial Initialization ---
-// --- Swiper Engine (This makes the Client Voices move) ---
 document.addEventListener('DOMContentLoaded', function () {
     const swiper = new Swiper('.testimonialSwiper', {
         slidesPerView: 1,
-        spaceBetween: 30,
+        spaceBetween: 20,
         loop: true,
+        // ADD THESE TWO LINES:
+        observer: true, 
+        observeParents: true,
+        
         autoplay: {
             delay: 5000,
             disableOnInteraction: false,
@@ -293,14 +296,15 @@ document.addEventListener('DOMContentLoaded', function () {
             clickable: true,
         },
         breakpoints: {
-            // Screen width >= 768px (Tablets)
             768: {
                 slidesPerView: 2,
+                spaceBetween: 30,
             },
-            // Screen width >= 1024px (Laptops/Desktops)
             1024: {
-                slidesPerView: 3,
+                slidesPerView: 3, // This forces the 3 cards
+                spaceBetween: 40,
             }
         }
     });
 });
+
