@@ -1103,14 +1103,14 @@ footer {
 }
 
 /* Message Bubbles */
-.message { font-size: 12px; line-height: 1.5; padding: 12px; border-radius: 10px; max-width: 85%; }
+/* .message { font-size: 12px; line-height: 1.5; padding: 12px; border-radius: 10px; max-width: 85%; } */
 .ai-msg { background: rgba(212,175,55,0.05); color: #fff; border-left: 2px solid #d4af37; align-self: flex-start; }
 .user-msg { background: #222; color: #d4af37; align-self: flex-end; }
 
 /* Input Area */
-.chat-input-area { padding: 15px; display: flex; border-top: 1px solid rgba(212,175,55,0.1); }
+/* .chat-input-area { padding: 15px; display: flex; border-top: 1px solid rgba(212,175,55,0.1); }
 .chat-input-area input { background: transparent; border: none; color: white; flex: 1; outline: none; font-size: 12px; }
-.chat-input-area button { background: transparent; border: none; color: #d4af37; cursor: pointer; font-size: 18px; }
+.chat-input-area button { background: transparent; border: none; color: #d4af37; cursor: pointer; font-size: 18px; } */
 
 /* media queries */
 @media (max-width: 768px) {
@@ -1132,10 +1132,64 @@ footer {
     }
 }
 
+/* Make chat messages more readable and premium */
+.message { 
+    font-size: 15px; /* Bigger text as requested */
+    line-height: 1.6; 
+    padding: 14px 18px; 
+    border-radius: 15px; 
+    max-width: 85%; 
+    word-wrap: break-word; /* Fixes the 'excess text' issue */
+}
+
+/* Luxury Input Box */
+.chat-input-area { 
+    padding: 20px; 
+    background: rgba(15, 15, 15, 0.8);
+    border-top: 1px solid rgba(212, 175, 55, 0.2); 
+    display: flex; 
+    align-items: flex-end; /* Keeps button at the bottom as box grows */
+    gap: 12px;
+}
+
+/* The textarea that grows with text */
+.chat-input-area textarea { 
+    background: transparent; 
+    border: none; 
+    color: white; 
+    flex: 1; 
+    outline: none; 
+    font-size: 14px; 
+    font-family: inherit;
+    resize: none; /* User can't manually drag it */
+    max-height: 150px; /* Limits growth */
+    padding: 5px 0;
+}
+
+/* Pro Button Animation */
+.chat-input-area button { 
+    background: #d4af37; 
+    color: #000; 
+    border: none; 
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    cursor: pointer; 
+    font-size: 20px;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+}
+
+.chat-input-area button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+}
+
 /* Add this to your Mobile CSS for easier closing */
 @media (max-width: 768px) {
     .ai-header button {
         padding: 10px;
         font-size: 22px; /* Bigger target for thumbs */
     }
+
 }
