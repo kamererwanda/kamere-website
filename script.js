@@ -276,3 +276,28 @@ window.onclick = (e) => {
         toggleAIChat();
     }
 };
+
+// --- Swiper Testimonial Initialization ---
+const testimonialSwiper = new Swiper(".testimonialSwiper", {
+    slidesPerView: 1,       // Show one testimonial at a time
+    spaceBetween: 30,      // Space between slides
+    loop: true,            // Infinite loop
+    autoplay: {
+        delay: 5000,       // Slide every 5 seconds
+        disableOnInteraction: false,
+    },
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    breakpoints: {
+        // When the screen is 768px or wider (Tablets/Laptops)
+        768: {
+            slidesPerView: 2,
+        },
+        // When the screen is 1024px or wider (Desktops)
+        1024: {
+            slidesPerView: 3,
+        }
+    }
+});
