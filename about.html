@@ -247,10 +247,16 @@
             </div>
         </div>
         <div class="chat-input-area">
-            <input type="text" id="user-query" placeholder="Baza Kamere mu Kinyarwanda..." onkeypress="if(event.key === 'Enter') sendToAI()">
+            <textarea 
+                id="user-query" 
+                placeholder="Baza Kamere mu rurimi rwawe..." 
+                rows="1"
+                oninput="this.style.height = ''; this.style.height = this.scrollHeight + 'px'"
+                onkeypress="if(event.key === 'Enter' && !event.shiftKey) { event.preventDefault(); sendToAI(); }"></textarea>
             <button onclick="sendToAI()">→</button>
         </div>
     </div>
 
 </body>
+
 </html>
